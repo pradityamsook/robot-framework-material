@@ -1,0 +1,5 @@
+- xpath and syntax for find endpoint of element
+- signin and signup
+- find one item
+- add one item to cart
+- add many items to cart
