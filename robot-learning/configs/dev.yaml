@@ -1,0 +1,5 @@
+BROWSER: chrome
+BASE_URL: https://demoblaze.com
+API_URL: https://dev.api.example.com
+VALID_USERNAME: devuser
+VALID_PASSWORD: devpass
