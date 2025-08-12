@@ -3,3 +3,8 @@
 - find one item
 - add one item to cart
 - add many items to cart
+- use condition if-else and loops
+- db query select data
+- db query add data
+- db query update data
+- db query delete data
