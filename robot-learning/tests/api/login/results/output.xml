@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-05-13T17:01:15.340980" rpa="false" schemaversion="5">
+<suite id="s1" name="Dummy Api" source="D:\projects\robot-demo\dummy_api">
+<suite id="s1-s1" name="Dummy Api Test" source="D:\projects\robot-demo\dummy_api\dummy_api_test.robot">
+<test id="s1-s1-t1" name="Login User" line="11">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-05-13T17:01:15.761939" level="INFO">Creating Session using : alias=dummy, url=https://dummyjson.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>dummy</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-05-13T17:01:15.761659" elapsed="0.000511"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-05-13T17:01:16.390493" level="INFO">GET Request : url=https://dummyjson.com/users?limit=1 
+ path_url=/users?limit=1 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-05-13T17:01:16.391065" level="INFO">GET Response : url=https://dummyjson.com/users?limit=1 
+ status=200, reason=OK 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Encoding': 'gzip', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Tue, 13 May 2025 10:01:16 GMT', 'Etag': 'W/"5a6-r6mINxQ2hEpUL2DJSBp7aAklcUM"', 'Server': 'railway-edge', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Powered-By': 'Cats on Keyboards', 'X-Railway-Edge': 'railway/asia-southeast1-eqsg3a', 'X-Railway-Request-Id': 'Oj3aemmiS668jewtDcO5xA', 'X-Ratelimit-Limit': '100', 'X-Ratelimit-Remaining': '99', 'X-Ratelimit-Reset': '1747130481', 'X-Xss-Protection': '1; mode=block', 'Transfer-Encoding': 'chunked'} 
+ body={"users":[{"id":1,"firstName":"Emily","lastName":"Johnson","maidenName":"Smith","age":28,"gender":"female","email":"emily.johnson@x.dummyjson.com","phone":"+81 965-431-3024","username":"emilys","password":"emilyspass","birthDate":"1996-5-30","image":"https://dummyjson.com/icon/emilys/128","bloodGroup":"O-","height":193.24,"weight":63.16,"eyeColor":"Green","hair":{"color":"Brown","type":"Curly"},"ip":"42.48.100.32","address":{"address":"626 Main Street","city":"Phoenix","state":"Mississippi","stateCode":"MS","postalCode":"29112","coordinates":{"lat":-77.16213,"lng":-92.084824},"country":"United States"},"macAddress":"47:fa:41:18:ec:eb","university":"University of Wisconsin--Madison","bank":{"cardExpire":"03/26","cardNumber":"9289760655481815","cardType":"Elo","currency":"CNY","iban":"YPUXISOBI7TTHPK2BR3HAIXL"},"company":{"department":"Engineering","name":"Dooley, Kozey and Cronin","title":"Sales Manager","address":{"address":"263 Tenth Street","city":"San Francisco","state":"Wisconsin","stateCode":"WI","postalCode":"37657","coordinates":{"lat":71.814525,"lng":-161.150263},"country":"United States"}},"ein":"977-175","ssn":"900-590-289","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36","crypto":{"coin":"Bitcoin","wallet":"0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a","network":"Ethereum (ERC20)"},"role":"admin"}],"total":208,"skip":0,"limit":1} 
+ </msg>
+<msg time="2025-05-13T17:01:16.391353" level="INFO">C:\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'dummyjson.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-05-13T17:01:16.392007" level="INFO">${user_response} = &lt;Response [200]&gt;</msg>
+<var>${user_response}</var>
+<arg>dummy</arg>
+<arg>/users?limit\=1</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-05-13T17:01:15.762483" elapsed="0.629763"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${user_response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-05-13T17:01:16.392983" elapsed="0.000892"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-13T17:01:16.395267" level="INFO">{"users":[{"id":1,"firstName":"Emily","lastName":"Johnson","maidenName":"Smith","age":28,"gender":"female","email":"emily.johnson@x.dummyjson.com","phone":"+81 965-431-3024","username":"emilys","password":"emilyspass","birthDate":"1996-5-30","image":"https://dummyjson.com/icon/emilys/128","bloodGroup":"O-","height":193.24,"weight":63.16,"eyeColor":"Green","hair":{"color":"Brown","type":"Curly"},"ip":"42.48.100.32","address":{"address":"626 Main Street","city":"Phoenix","state":"Mississippi","stateCode":"MS","postalCode":"29112","coordinates":{"lat":-77.16213,"lng":-92.084824},"country":"United States"},"macAddress":"47:fa:41:18:ec:eb","university":"University of Wisconsin--Madison","bank":{"cardExpire":"03/26","cardNumber":"9289760655481815","cardType":"Elo","currency":"CNY","iban":"YPUXISOBI7TTHPK2BR3HAIXL"},"company":{"department":"Engineering","name":"Dooley, Kozey and Cronin","title":"Sales Manager","address":{"address":"263 Tenth Street","city":"San Francisco","state":"Wisconsin","stateCode":"WI","postalCode":"37657","coordinates":{"lat":71.814525,"lng":-161.150263},"country":"United States"}},"ein":"977-175","ssn":"900-590-289","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36","crypto":{"coin":"Bitcoin","wallet":"0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a","network":"Ethereum (ERC20)"},"role":"admin"}],"total":208,"skip":0,"limit":1}</msg>
+<arg>${user_response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-13T17:01:16.394571" elapsed="0.000908"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-13T17:01:16.396661" level="INFO">${user_json} = {'users': [{'id': 1, 'firstName': 'Emily', 'lastName': 'Johnson', 'maidenName': 'Smith', 'age': 28, 'gender': 'female', 'email': 'emily.johnson@x.dummyjson.com', 'phone': '+81 965-431-3024', 'username...</msg>
+<var>${user_json}</var>
+<arg>json.loads("""${user_response.content}""")</arg>
+<arg>modules=json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-13T17:01:16.395895" elapsed="0.000897"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-13T17:01:16.397431" level="INFO">{'users': [{'id': 1, 'firstName': 'Emily', 'lastName': 'Johnson', 'maidenName': 'Smith', 'age': 28, 'gender': 'female', 'email': 'emily.johnson@x.dummyjson.com', 'phone': '+81 965-431-3024', 'username': 'emilys', 'password': 'emilyspass', 'birthDate': '1996-5-30', 'image': 'https://dummyjson.com/icon/emilys/128', 'bloodGroup': 'O-', 'height': 193.24, 'weight': 63.16, 'eyeColor': 'Green', 'hair': {'color': 'Brown', 'type': 'Curly'}, 'ip': '42.48.100.32', 'address': {'address': '626 Main Street', 'city': 'Phoenix', 'state': 'Mississippi', 'stateCode': 'MS', 'postalCode': '29112', 'coordinates': {'lat': -77.16213, 'lng': -92.084824}, 'country': 'United States'}, 'macAddress': '47:fa:41:18:ec:eb', 'university': 'University of Wisconsin--Madison', 'bank': {'cardExpire': '03/26', 'cardNumber': '9289760655481815', 'cardType': 'Elo', 'currency': 'CNY', 'iban': 'YPUXISOBI7TTHPK2BR3HAIXL'}, 'company': {'department': 'Engineering', 'name': 'Dooley, Kozey and Cronin', 'title': 'Sales Manager', 'address': {'address': '263 Tenth Street', 'city': 'San Francisco', 'state': 'Wisconsin', 'stateCode': 'WI', 'postalCode': '37657', 'coordinates': {'lat': 71.814525, 'lng': -161.150263}, 'country': 'United States'}}, 'ein': '977-175', 'ssn': '900-590-289', 'userAgent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36', 'crypto': {'coin': 'Bitcoin', 'wallet': '0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a', 'network': 'Ethereum (ERC20)'}, 'role': 'admin'}], 'total': 208, 'skip': 0, 'limit': 1}</msg>
+<arg>${user_json}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-13T17:01:16.397155" elapsed="0.000585"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-05-13T17:01:16.398388" level="INFO">${user_list} = [{'id': 1, 'firstName': 'Emily', 'lastName': 'Johnson', 'maidenName': 'Smith', 'age': 28, 'gender': 'female', 'email': 'emily.johnson@x.dummyjson.com', 'phone': '+81 965-431-3024', 'username': 'emilys...</msg>
+<var>${user_list}</var>
+<arg>${user_json}</arg>
+<arg>users</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-05-13T17:01:16.398113" elapsed="0.000385"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-05-13T17:01:16.399089" level="INFO">${user} = {'id': 1, 'firstName': 'Emily', 'lastName': 'Johnson', 'maidenName': 'Smith', 'age': 28, 'gender': 'female', 'email': 'emily.johnson@x.dummyjson.com', 'phone': '+81 965-431-3024', 'username': 'emilys'...</msg>
+<var>${user}</var>
+<arg>${user_list}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-05-13T17:01:16.398801" elapsed="0.000386"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-05-13T17:01:16.399724" level="INFO">${username} = emilys</msg>
+<var>${username}</var>
+<arg>${user}</arg>
+<arg>username</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-05-13T17:01:16.399344" elapsed="0.000477"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-05-13T17:01:16.400507" level="INFO">${password} = emilyspass</msg>
+<var>${password}</var>
+<arg>${user}</arg>
+<arg>password</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-05-13T17:01:16.400249" elapsed="0.000358"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-13T17:01:16.401222" level="INFO">&amp;{login_data} = { username=emilys | password=emilyspass }</msg>
+<var>&amp;{login_data}</var>
+<arg>username=${username}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-13T17:01:16.400893" elapsed="0.000424"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-05-13T17:01:16.693324" level="INFO">POST Request : url=https://dummyjson.com/user/login 
+ path_url=/user/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '48', 'Content-Type': 'application/json'} 
+ body=b'{"username": "emilys", "password": "emilyspass"}' 
+ </msg>
+<msg time="2025-05-13T17:01:16.693648" level="INFO">POST Response : url=https://dummyjson.com/user/login 
+ status=200, reason=OK 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '930', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Tue, 13 May 2025 10:01:16 GMT', 'Etag': 'W/"3a2-z+p85CxHzY50waw7CsBlFOaATSA"', 'Server': 'railway-edge', 'Set-Cookie': 'accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJlbWlseXMiLCJlbWFpbCI6ImVtaWx5LmpvaG5zb25AeC5kdW1teWpzb24uY29tIiwiZmlyc3ROYW1lIjoiRW1pbHkiLCJsYXN0TmFtZSI6IkpvaG5zb24iLCJnZW5kZXIiOiJmZW1hbGUiLCJpbWFnZSI6Imh0dHBzOi8vZHVtbXlqc29uLmNvbS9pY29uL2VtaWx5cy8xMjgiLCJpYXQiOjE3NDcxMzA0NzYsImV4cCI6MTc0NzEzNDA3Nn0.qJhoFF9zUz9P_IA1tcG6rCCgGDHSsu--gV-ZA6UZSgU; Max-Age=3600; Path=/; Expires=Tue, 13 May 2025 11:01:16 GMT; HttpOnly; Secure, refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJlbWlseXMiLCJlbWFpbCI6ImVtaWx5LmpvaG5zb25AeC5kdW1teWpzb24uY29tIiwiZmlyc3ROYW1lIjoiRW1pbHkiLCJsYXN0TmFtZSI6IkpvaG5zb24iLCJnZW5kZXIiOiJmZW1hbGUiLCJpbWFnZSI6Imh0dHBzOi8vZHVtbXlqc29uLmNvbS9pY29uL2VtaWx5cy8xMjgiLCJpYXQiOjE3NDcxMzA0NzYsImV4cCI6MTc0OTcyMjQ3Nn0.RXps_eR4biy2dWej8zrVhB96KYHkwQwvTnm8ZJ9pY2A; Max-Age=3600; Path=/; Expires=Tue, 13 May 2025 11:01:16 GMT; HttpOnly; Secure', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Powered-By': 'Cats on Keyboards', 'X-Railway-Edge': 'railway/asia-southeast1-eqsg3a', 'X-Railway-Request-Id': 'kYG851OYRZK-6YCfDcO5xA', 'X-Ratelimit-Limit': '100', 'X-Ratelimit-Remaining': '98', 'X-Ratelimit-Reset': '1747130481', 'X-Xss-Protection': '1; mode=block'} 
+ body={"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJlbWlseXMiLCJlbWFpbCI6ImVtaWx5LmpvaG5zb25AeC5kdW1teWpzb24uY29tIiwiZmlyc3ROYW1lIjoiRW1pbHkiLCJsYXN0TmFtZSI6IkpvaG5zb24iLCJnZW5kZXIiOiJmZW1hbGUiLCJpbWFnZSI6Imh0dHBzOi8vZHVtbXlqc29uLmNvbS9pY29uL2VtaWx5cy8xMjgiLCJpYXQiOjE3NDcxMzA0NzYsImV4cCI6MTc0NzEzNDA3Nn0.qJhoFF9zUz9P_IA1tcG6rCCgGDHSsu--gV-ZA6UZSgU","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJlbWlseXMiLCJlbWFpbCI6ImVtaWx5LmpvaG5zb25AeC5kdW1teWpzb24uY29tIiwiZmlyc3ROYW1lIjoiRW1pbHkiLCJsYXN0TmFtZSI6IkpvaG5zb24iLCJnZW5kZXIiOiJmZW1hbGUiLCJpbWFnZSI6Imh0dHBzOi8vZHVtbXlqc29uLmNvbS9pY29uL2VtaWx5cy8xMjgiLCJpYXQiOjE3NDcxMzA0NzYsImV4cCI6MTc0OTcyMjQ3Nn0.RXps_eR4biy2dWej8zrVhB96KYHkwQwvTnm8ZJ9pY2A","id":1,"username":"emilys","email":"emily.johnson@x.dummyjson.com","firstName":"Emily","lastName":"Johnson","gender":"female","image":"https://dummyjson.com/icon/emilys/128"} 
+ </msg>
+<msg time="2025-05-13T17:01:16.693994" level="INFO">C:\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'dummyjson.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-05-13T17:01:16.694662" level="INFO">${login_response} = &lt;Response [200]&gt;</msg>
+<var>${login_response}</var>
+<arg>dummy</arg>
+<arg>/user/login</arg>
+<arg>json=${login_data}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-05-13T17:01:16.401587" elapsed="0.293270"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${login_response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-05-13T17:01:16.695203" elapsed="0.000519"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-13T17:01:16.696822" level="INFO">${login_json} = {'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJlbWlseXMiLCJlbWFpbCI6ImVtaWx5LmpvaG5zb25AeC5kdW1teWpzb24uY29tIiwiZmlyc3ROYW1lIjoiRW1pbHkiLCJsYXN0TmFtZSI6IkpvaG5zb24iLC...</msg>
+<var>${login_json}</var>
+<arg>json.loads("""${login_response.content}""")</arg>
+<arg>modules=json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-13T17:01:16.695946" elapsed="0.001063"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${login_json}</arg>
+<arg>accessToken</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-13T17:01:16.697239" elapsed="0.000278"/>
+</kw>
+<status status="PASS" start="2025-05-13T17:01:15.760884" elapsed="0.936828"/>
+</test>
+<status status="PASS" start="2025-05-13T17:01:15.372290" elapsed="1.326144"/>
+</suite>
+<status status="PASS" start="2025-05-13T17:01:15.351366" elapsed="1.347777"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Dummy Api" id="s1" pass="1" fail="0" skip="0">Dummy Api</stat>
+<stat name="Dummy Api Test" id="s1-s1" pass="1" fail="0" skip="0">Dummy Api.Dummy Api Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

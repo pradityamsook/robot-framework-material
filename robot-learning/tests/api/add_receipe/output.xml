@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-05-14T11:41:13.861528" rpa="false" schemaversion="5">
+<suite id="s1" name="Add Receipe Test" source="D:\projects\robot-demo\dummy_api\add_receipe\add_receipe_test.robot">
+<test id="s1-t1" name="Add Recipe" line="16">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-05-14T11:41:14.463531" level="INFO">Creating Session using : alias=dummy, url=https://dummyjson.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>dummy</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-05-14T11:41:14.463412" elapsed="0.000248"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-14T11:41:14.464150" level="INFO">${data} = {'name': 'Test Recipe'}</msg>
+<var>${data}</var>
+<arg>name=${NAME}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-14T11:41:14.463864" elapsed="0.000308"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-05-14T11:41:15.338584" level="INFO">POST Request : url=https://dummyjson.com/recipes/add 
+ path_url=/recipes/add 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '23', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Test Recipe"}' 
+ </msg>
+<msg time="2025-05-14T11:41:15.338778" level="INFO">POST Response : url=https://dummyjson.com/recipes/add 
+ status=200, reason=OK 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '30', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 14 May 2025 04:41:15 GMT', 'Etag': 'W/"1e-NQHMAtDUk+FdvR6jB0iYlV1dMmI"', 'Server': 'railway-edge', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Powered-By': 'Cats on Keyboards', 'X-Railway-Edge': 'railway/asia-southeast1-eqsg3a', 'X-Railway-Request-Id': 'Lgtn2V_GR2qdvEdmacI7Nw', 'X-Ratelimit-Limit': '100', 'X-Ratelimit-Remaining': '99', 'X-Ratelimit-Reset': '1747197684', 'X-Xss-Protection': '1; mode=block'} 
+ body={"id":51,"name":"Test Recipe"} 
+ </msg>
+<msg time="2025-05-14T11:41:15.338876" level="INFO">C:\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'dummyjson.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-05-14T11:41:15.339482" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>dummy</arg>
+<arg>/recipes/add</arg>
+<arg>json=${data}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-05-14T11:41:14.464388" elapsed="0.875159"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-05-14T11:41:15.340083" elapsed="0.000406"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-14T11:41:15.342009" level="INFO">${json} = {'id': 51, 'name': 'Test Recipe'}</msg>
+<var>${json}</var>
+<arg>json.loads("""${response.content}""")</arg>
+<arg>modules=json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-14T11:41:15.341099" elapsed="0.000953"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-05-14T11:41:15.342802" level="INFO">Length is 2.</msg>
+<arg>${json}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-05-14T11:41:15.342589" elapsed="0.000274"/>
+</kw>
+<kw name="Delete All Sessions" owner="RequestsLibrary" type="TEARDOWN">
+<msg time="2025-05-14T11:41:15.343652" level="INFO">Deleting All Sessions</msg>
+<doc>Removes all the session objects</doc>
+<status status="PASS" start="2025-05-14T11:41:15.343532" elapsed="0.000217"/>
+</kw>
+<status status="PASS" start="2025-05-14T11:41:14.462703" elapsed="0.881395"/>
+</test>
+<status status="PASS" start="2025-05-14T11:41:13.875541" elapsed="1.470112"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Add Receipe Test" id="s1" pass="1" fail="0" skip="0">Add Receipe Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
