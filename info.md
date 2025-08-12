@@ -17,7 +17,9 @@ robot_project/
 │   ├── api/
 │   │   └── login_api.robot
 │   └── ui/
-│       └── login_ui.robot
+│   |    └── login_ui.robot
+|   |__ db/
+|       └── login_db.robot
 │
 ├── resources/
 │   ├── keywords/
