@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-08-25T15:35:47.040114" rpa="false" schemaversion="5">
+<suite id="s1" name="Buy And Checkout Items" source="D:\sources-work\robot-framework-material\practice_robot\buy_items\buy_and_checkout_items.robot">
+<test id="s1-t1" name="Add to cart and buy successfully" line="12">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-25T15:35:47.446329" level="INFO">Opening browser 'chrome' to base url 'https://www.demoblaze.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-25T15:35:47.446329" elapsed="9.144896"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=#tbodyid &gt; div:nth-child(1) &gt; div &gt; div &gt; h4 &gt; a</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-25T15:35:56.592732" elapsed="1.707306"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-25T15:35:58.302147" level="INFO">Clicking element 'css=#tbodyid &gt; div:nth-child(1) &gt; div &gt; div &gt; h4 &gt; a'.</msg>
+<arg>css=#tbodyid &gt; div:nth-child(1) &gt; div &gt; div &gt; h4 &gt; a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-25T15:35:58.302147" elapsed="1.341931"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=#tbodyid &gt; div.row &gt; div &gt; a</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-25T15:35:59.644078" elapsed="1.293972"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-25T15:36:00.938050" level="INFO">Clicking element 'css=#tbodyid &gt; div.row &gt; div &gt; a'.</msg>
+<arg>css=#tbodyid &gt; div.row &gt; div &gt; a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-25T15:36:00.938050" elapsed="0.055772"/>
+</kw>
+<kw name="Alert Should Be Present" owner="SeleniumLibrary">
+<msg time="2025-08-25T15:36:00.994375" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>action=Accept</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<status status="PASS" start="2025-08-25T15:36:00.994375" elapsed="1.519328"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-25T15:36:02.514778" level="INFO">Clicking element 'css=#cartur'.</msg>
+<arg>css=#cartur</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-25T15:36:02.513703" elapsed="2.491332"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=#page-wrapper &gt; div &gt; div.col-lg-1 &gt; button</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-25T15:36:05.005489" elapsed="0.035417"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-25T15:36:05.041926" level="INFO">Clicking element 'css=#page-wrapper &gt; div &gt; div.col-lg-1 &gt; button'.</msg>
+<arg>css=#page-wrapper &gt; div &gt; div.col-lg-1 &gt; button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-25T15:36:05.040906" elapsed="0.066181"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=#name</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-25T15:36:05.107087" elapsed="0.231924"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-25T15:36:05.339011" level="INFO">Typing text 'John Doe' into text field 'css=#name'.</msg>
+<arg>css=#name</arg>
+<arg>John Doe</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-25T15:36:05.339011" elapsed="0.115079"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-25T15:36:05.456168" level="INFO">Typing text 'USA' into text field 'css=#country'.</msg>
+<arg>css=#country</arg>
+<arg>USA</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-25T15:36:05.455660" elapsed="0.090859"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-25T15:36:05.546519" level="INFO">Typing text 'New York' into text field 'css=#city'.</msg>
+<arg>css=#city</arg>
+<arg>New York</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-25T15:36:05.546519" elapsed="0.095847"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-25T15:36:05.642366" level="INFO">Typing text '1234 5678 9012 3456' into text field 'css=#card'.</msg>
+<arg>css=#card</arg>
+<arg>1234 5678 9012 3456</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-25T15:36:05.642366" elapsed="0.078843"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-25T15:36:05.721209" level="INFO">Typing text '12' into text field 'css=#month'.</msg>
+<arg>css=#month</arg>
+<arg>12</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-25T15:36:05.721209" elapsed="0.074746"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-25T15:36:05.795955" level="INFO">Typing text '2025' into text field 'css=#year'.</msg>
+<arg>css=#year</arg>
+<arg>2025</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-25T15:36:05.795955" elapsed="0.068602"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-25T15:36:05.865555" level="INFO">Clicking element 'css=#orderModal &gt; div &gt; div &gt; div.modal-footer &gt; button.btn.btn-primary'.</msg>
+<arg>css=#orderModal &gt; div &gt; div &gt; div.modal-footer &gt; button.btn.btn-primary</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-25T15:36:05.865555" elapsed="0.063919"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=body &gt; div.sweet-alert.showSweetAlert.visible &gt; h2</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-25T15:36:05.930472" elapsed="0.641142"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-08-25T15:36:06.571614" level="INFO">Verifying element 'css=body &gt; div.sweet-alert.showSweetAlert.visible &gt; h2' contains exact text 'Thank you for your purchase!'.</msg>
+<arg>css=body &gt; div.sweet-alert.showSweetAlert.visible &gt; h2</arg>
+<arg>Thank you for your purchase!</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-08-25T15:36:06.571614" elapsed="0.020468"/>
+</kw>
+<status status="PASS" start="2025-08-25T15:35:47.446329" elapsed="19.146755"/>
+</test>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-08-25T15:36:06.593084" elapsed="2.462941"/>
+</kw>
+<status status="PASS" start="2025-08-25T15:35:47.040114" elapsed="22.015911"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Buy And Checkout Items" id="s1" pass="1" fail="0" skip="0">Buy And Checkout Items</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
