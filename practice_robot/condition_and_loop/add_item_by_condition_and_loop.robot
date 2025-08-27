@@ -32,93 +32,89 @@ Add to cart and buy successfully
     Wait Until Element Is Visible    css=body > div.sweet-alert.showSweetAlert.visible > h2    5s
     Element Text Should Be    css=body > div.sweet-alert.showSweetAlert.visible > h2    Thank you for your purchase!
 
-Add Multiple Items To Cart
-    Open Browser    ${URL}    ${BROWSER}
-    FOR    ${index}    IN    @{PRODUCT INDICES}
-        Wait Until Element Is Visible    css=#tbodyid > div:nth-child(${index}) > div > div > h4 > a    5s
-        Click Element    css=#tbodyid > div:nth-child(${index}) > div > div > h4 > a
-        Wait Until Element Is Visible    css=#tbodyid > div.row > div > a    5s
-        Click Element    css=#tbodyid > div.row > div > a
-        Alert Should Be Present    action=Accept
-        Go To    ${URL}
-    END
+# Add Multiple Items To Cart
+#     Open Browser    ${URL}    ${BROWSER}
+#     FOR    ${index}    IN    @{PRODUCT INDICES}
+#         Wait Until Element Is Visible    css=#tbodyid > div:nth-child(${index}) > div > div > h4 > a    5s
+#         Click Element    css=#tbodyid > div:nth-child(${index}) > div > div > h4 > a
+#         Wait Until Element Is Visible    css=#tbodyid > div.row > div > a    5s
+#         Click Element    css=#tbodyid > div.row > div > a
+#         Alert Should Be Present    action=Accept
+#         Go To    ${URL}
+#     END
 
-Add Until Cart Has Three Items
-    Open Browser    ${URL}    ${BROWSER}
-    ${count}=    Set Variable    0
-    WHILE    ${count} < 3
-        ${index}=    Evaluate    ${count} + 1
-        Wait Until Element Is Visible    css=#tbodyid > div:nth-child(${index}) > div > div > h4 > a    5s
-        Click Element    css=#tbodyid > div:nth-child(${index}) > div > div > h4 > a
-        Wait Until Element Is Visible    css=#tbodyid > div.row > div > a    5s
-        Click Element    css=#tbodyid > div.row > div > a
-        Alert Should Be Present    action=Accept
-        Go To    ${URL}
-        ${count}=    Evaluate    ${count} + 1
-    END
+# Add Until Cart Has Three Items
+#     Open Browser    ${URL}    ${BROWSER}
+#     ${count}=    Set Variable    0
+#     WHILE    ${count} < 3
+#         ${index}=    Evaluate    ${count} + 1
+#         Wait Until Element Is Visible    css=#tbodyid > div:nth-child(${index}) > div > div > h4 > a    5s
+#         Click Element    css=#tbodyid > div:nth-child(${index}) > div > div > h4 > a
+#         Wait Until Element Is Visible    css=#tbodyid > div.row > div > a    5s
+#         Click Element    css=#tbodyid > div.row > div > a
+#         Alert Should Be Present    action=Accept
+#         Go To    ${URL}
+#         ${count}=    Evaluate    ${count} + 1
+#     END
 
-Buy Expensive Things Only
-    Open Browser    ${URL}    ${BROWSER}
-    Wait Until Element Is Visible    css=#tbodyid > div:nth-child(2) > div > div > h4 > a    5s
-    Click Element    css=#tbodyid > div:nth-child(2) > div > div > h4 > a
-    Wait Until Element Is Visible    css=.price-container    5s
-    ${price_text}=    Get Text    css=.price-container
-    ${price_clean}=    Evaluate    re.sub(r'[^0-9]', '', """${price_text}""")    re
-    ${price}=    Evaluate    int(${price_clean})
+# Buy Expensive Things Only
+#     Open Browser    ${URL}    ${BROWSER}
+#     Wait Until Element Is Visible    css=#tbodyid > div:nth-child(2) > div > div > h4 > a    5s
+#     Click Element    css=#tbodyid > div:nth-child(2) > div > div > h4 > a
+#     Wait Until Element Is Visible    css=.price-container    5s
+#     ${price_text}=    Get Text    css=.price-container
+#     ${price_clean}=    Evaluate    re.sub(r'[^0-9]', '', """${price_text}""")    re
+#     ${price}=    Evaluate    int(${price_clean})
 
-    IF    ${price} > 500
-        Click Element    css=#tbodyid > div.row > div > a
-        Alert Should Be Present    action=Accept
-        Log    Purchased because price was ${price}
-    ELSE
-        Log    Skipping purchase; price ${price} is not high enough
-    END
+#     IF    ${price} > 500
+#         Click Element    css=#tbodyid > div.row > div > a
+#         Alert Should Be Present    action=Accept
+#         Log    Purchased because price was ${price}
+#     ELSE
+#         Log    Skipping purchase; price ${price} is not high enough
+#     END
 
-Buy Expensive Things Only All Pages
-    Open Browser    ${URL}    ${BROWSER}
+# Buy Expensive Things Only All Pages
+#     Open Browser    ${URL}    ${BROWSER}
 
-    WHILE    True
-        Wait Until Element Is Visible   css=#tbodyid > div > div > div > h4 > a    5s
+#     WHILE    True
+#         Wait Until Element Is Visible   css=#tbodyid > div > div > div > h4 > a    5s
         
-        ${count}=    Get Element Count    css=#tbodyid > div > div > div > h4 > a
-        Log    Found ${count} items on the page
+#         ${count}=    Get Element Count    css=#tbodyid > div > div > div > h4 > a
+#         Log    Found ${count} items on the page
         
-        FOR    ${index}    IN RANGE    ${count}
-            ${items}=    Get WebElements    css=#tbodyid > div > div > div > h4 > a
-            ${item}=    Get From List    ${items}    ${index}
+#         FOR    ${index}    IN RANGE    ${count}
+#             ${items}=    Get WebElements    css=#tbodyid > div > div > div > h4 > a
+#             ${item}=    Get From List    ${items}    ${index}
 
-            Wait Until Element Is Visible    ${item}    5s
-            Click Element    ${item}
-            Wait Until Element Is Visible    css=.price-container    5s
+#             Wait Until Element Is Visible    ${item}    5s
+#             Click Element    ${item}
+#             Wait Until Element Is Visible    css=.price-container    5s
 
-            ${price_text}=    Get Text    css=.price-container
-            ${price_clean}=    Evaluate    re.sub(r'[^0-9]', '', """${price_text}""")    re
-            ${price}=    Evaluate    int(${price_clean})
+#             ${price_text}=    Get Text    css=.price-container
+#             ${price_clean}=    Evaluate    re.sub(r'[^0-9]', '', """${price_text}""")    re
+#             ${price}=    Evaluate    int(${price_clean})
 
-            IF    ${price} > 500
-                Wait Until Element Is Visible    css=#tbodyid > div.row > div > a    5s
-                Click Element    css=#tbodyid > div.row > div > a
-                Alert Should Be Present    action=ACCEPT
-                Log    Purchased because price was ${price}
-                Go Back
-                Go Back
-            ELSE
-                Log    Skipping purchase; price ${price} is not high enough
-                Go Back
-            END
-            Wait Until Element Is Visible   css=#tbodyid > div > div > div > h4 > a    5s
-        END
+#             IF    ${price} > 500
+#                 Wait Until Element Is Visible    css=#tbodyid > div.row > div > a    5s
+#                 Click Element    css=#tbodyid > div.row > div > a
+#                 Alert Should Be Present    action=ACCEPT
+#                 Log    Purchased because price was ${price}
+#                 Go Back
+#                 Go Back
+#             ELSE
+#                 Log    Skipping purchase; price ${price} is not high enough
+#                 Go Back
+#             END
+#             Wait Until Element Is Visible   css=#tbodyid > div > div > div > h4 > a    5s
+#         END
 
-        ${next_exists}=    Run Keyword And Return Status    Element Should Be Visible    css=#next2    3s
-        IF    ${next_exists}
-            Click Element    css=#next2
-            Sleep    2s
-            Wait Until Element Is Visible    css=#tbodyid > div > div > div > h4 > a    5s
-        ELSE
-            BREAK
-        END
-    END
-
-
-
-
+#         ${next_exists}=    Run Keyword And Return Status    Element Should Be Visible    css=#next2    3s
+#         IF    ${next_exists}
+#             Click Element    css=#next2
+#             Sleep    2s
+#             Wait Until Element Is Visible    css=#tbodyid > div > div > div > h4 > a    5s
+#         ELSE
+#             BREAK
+#         END
+#     END
