@@ -22,15 +22,10 @@ Login With Valid Credentials
 
 Login With Invalid Username
     Open Browser    ${URL}    ${BROWSER}
-    Sleep    5s
     Input Text    xpath=//*[@id="username"]    ${INVALID USER}
-    Sleep    5s
     Input Text    xpath=//*[@id="password"]    ${VALID PASS}
-    Sleep    5s
     Click Button    xpath=//*[@id="submit"]
-    Sleep    5s
     Wait Until Page Contains    Your username is invalid!
-    Sleep    5s
     Close Browser
 
 Login With Invalid Password
