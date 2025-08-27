@@ -1,3 +1,16 @@
+*** Settings ***
+Library     SeleniumLibrary
+Library     Collections
+Suite Teardown    Close All Browsers
+# Resource    ../resources/login.resource
+ 
+ 
+*** Variables ***
+${URL}          https://www.demoblaze.com/
+${BROWSER}      chrome
+
+
+*** Test Cases ***
 Buy Expensive Things Only All Pages
     Open Browser    ${URL}    ${BROWSER}
 
