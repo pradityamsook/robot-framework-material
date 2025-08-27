@@ -9,13 +9,13 @@ ${username}     abce1@mail.com
 ${pass}         Pass1
 ${welcome_user}    Welcome abce1@mail.com
 ${categories_user}    Phones    Laptops    Monitors
-
+@{PRODUCT_INDICES}    1    2    3    4    5
 
 
 *** Test Cases ***
 Add Multiple Items To Cart
     Open Browser    ${URL}    ${BROWSER}
-    FOR    ${index}    IN    @{PRODUCT INDICES}
+    FOR    ${index}    IN    @{PRODUCT_INDICES}
         Wait Until Element Is Visible    css=#tbodyid > div:nth-child(${index}) > div > div > h4 > a    5s
         Click Element    css=#tbodyid > div:nth-child(${index}) > div > div > h4 > a
         Wait Until Element Is Visible    css=#tbodyid > div.row > div > a    5s
