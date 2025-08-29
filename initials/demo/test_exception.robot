@@ -8,18 +8,18 @@ Suite Teardown      Close Browser
 *** Variables ***
 ${URL}          https://practicetestautomation.com/practice-test-exceptions/
 ${BROWSER}      chrome
-
+${food}    ผัดกระเพรา
 
 *** Test Cases ***
 Update Row 1
     Click Button    xpath=//*[@id="edit_btn"]
     Wait Until Element Is Visible    xpath=//*[@id="row1"]/input    timeout=10s
-    Clear Element Text    xpath=//*[@id="row1"]/input
-    Input Text    xpath=//*[@id="row1"]/input    KFC
-    Click Button    xpath=//*[@id="save_btn"]
+    Clear Element Text    css=#row1 > input
+    Input Text    xpath=//*[@id="row1"]/input    ${food}
+    Click Button    css=#save_btn
 
 Add Row 2 And Verify Addition
-    Click Button    xpath=//*[@id="add_btn"]
+    Click Button    css=#add_btn
     Wait Until Element Is Visible    xpath=//*[@id="row2"]/input    timeout=10s
     Input Text    xpath=//*[@id="row2"]/input    Burger King
 

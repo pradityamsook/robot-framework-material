@@ -14,9 +14,13 @@ ${INVALID PASS}     wrongpass
 *** Test Cases ***
 Login With Valid Credentials
     Open Browser    ${URL}    ${BROWSER}
+    Sleep    3s
     Input Text    xpath=//*[@id="username"]    ${VALID USER}
+    Sleep    3s
     Input Text    xpath=//*[@id="password"]    ${VALID PASS}
+    Sleep    3s
     Click Button    xpath=//*[@id="submit"]
+    Sleep    3s
     Wait Until Page Contains    Logged In Successfully
     Close Browser
 

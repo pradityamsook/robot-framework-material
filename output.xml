@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.11.3 on win32)" generated="2025-08-28T13:48:17.196583" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Exception" source="D:\sources-work\robot-framework-material\initials\test_exception.robot">
+<kw name="Open Browser To Exception Page" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-28T13:48:17.570231" level="INFO">Opening browser 'chrome' to base url 'https://practicetestautomation.com/practice-test-exceptions/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-28T13:48:17.570231" elapsed="8.876595"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-28T13:48:26.446826" elapsed="0.030640"/>
+</kw>
+<status status="PASS" start="2025-08-28T13:48:17.570231" elapsed="8.907235"/>
+</kw>
+<test id="s1-t1" name="Update Row 1" line="14">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-28T13:48:26.479455" level="INFO">Clicking button 'xpath=//*[@id="edit_btn"]'.</msg>
+<arg>xpath=//*[@id="edit_btn"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-28T13:48:26.478458" elapsed="0.089235"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="row1"]/input</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-28T13:48:26.567693" elapsed="0.043592"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="row1"]/input</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-28T13:48:26.611285" elapsed="0.031112"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-28T13:48:26.642397" level="INFO">Typing text 'KFC' into text field 'xpath=//*[@id="row1"]/input'.</msg>
+<arg>xpath=//*[@id="row1"]/input</arg>
+<arg>KFC</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-28T13:48:26.642397" elapsed="0.109192"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-28T13:48:26.753639" level="INFO">Clicking button 'xpath=//*[@id="save_btn"]'.</msg>
+<arg>xpath=//*[@id="save_btn"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-28T13:48:26.752879" elapsed="0.085761"/>
+</kw>
+<status status="PASS" start="2025-08-28T13:48:26.478458" elapsed="0.360182"/>
+</test>
+<test id="s1-t2" name="Add Row 2 And Verify Addition" line="21">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-28T13:48:26.838640" level="INFO">Clicking button 'css=#add_btn'.</msg>
+<arg>css=#add_btn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-28T13:48:26.838640" elapsed="0.065843"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="row2"]/input</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-28T13:48:26.905536" elapsed="5.037672"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-28T13:48:31.943208" level="INFO">Typing text 'Burger King' into text field 'xpath=//*[@id="row2"]/input'.</msg>
+<arg>xpath=//*[@id="row2"]/input</arg>
+<arg>Burger King</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-28T13:48:31.943208" elapsed="0.079088"/>
+</kw>
+<status status="PASS" start="2025-08-28T13:48:26.838640" elapsed="5.183656"/>
+</test>
+<test id="s1-t3" name="Remove Row 2 And Verify Removal" line="26">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-28T13:48:32.022296" level="INFO">Clicking button 'xpath=//*[@id="remove_btn"]'.</msg>
+<arg>xpath=//*[@id="remove_btn"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-28T13:48:32.022296" elapsed="0.081937"/>
+</kw>
+<status status="PASS" start="2025-08-28T13:48:32.022296" elapsed="0.081937"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-28T13:48:32.104233" elapsed="2.529481"/>
+</kw>
+<status status="PASS" start="2025-08-28T13:48:17.196583" elapsed="17.437131"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test Exception" id="s1" pass="3" fail="0" skip="0">Test Exception</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -9,9 +9,9 @@ Library    SeleniumLibrary
 Loop list and display log
     FOR     ${DATA}    IN    @{DATA_INDICES}
         Log To Console    \n Data in list loop is #${DATA}
-        # IF    '${DATA}' == 'Banana'
-        #     Log To Console    \n Find #${DATA}
-        # END
+        IF    '${DATA}' == 'Banana'
+            Log To Console    \n Find #${DATA}
+        END
     END
 
 Loop Dict and display log
